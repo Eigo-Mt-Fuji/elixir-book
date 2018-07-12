@@ -6,13 +6,12 @@
   * モジュールと関数
 * Elixirの型を学ぶ
   * 文字列型
-  * 数値型(TBD)
-  * 真偽値(TBD)
+  * 数値型
+  * 真偽値
   * Atom型
   * List型
   * Tuples型
   * Anonymous Function型(無名関数)
-* 練習問題(関数に値をいろいろ入れてくみあわせてみる)
 
 ## このレッスンの所要時間
 
@@ -117,34 +116,74 @@ true
   * 数値に名前をつけられる
   * true/falseもatom, クラス名はatomとして管理されている
 
-* サンプルコード(TBD)
+* サンプルコード
 
 ```
-iex 7> is_atom(Tuple)
+iex> true == :true
 true
-iex 8> is_atom(File)
+iex> is_atom(false)
+true
+iex> is_boolean(:false)
+true
+
+iex> is_atom(Tuple)
+true
+
+iex> is_atom(File)
 true
 ```
 
 ### List型
 
 * 特徴
-  * TBD
+  * Elixirの基本型の1つ
+  * リスト型の値の書き方
+    * 角括弧 `[` `]` で囲った範囲にカンマ区切りで要素を記載する
+  * リスト内の要素には、どのような型の値でも含めることが可能
+    * 数値型、文字列型、真偽値型, など
+
 * サンプルコード
 
 ```
-* リストを作成する
-  * listTest = [1, 2, 3]
-* リストの要素を取得する
-  * Enum.at(listTest, 1)
-* リスト同士の足し算
-  * [1,2,3] ++ [4,5,6]
+iex> [1, 2, true, 3]
+[1, 2, true, 3]
+
+iex> [1, 2, 3] |> length
+3
+
+iex> [1, 2, 3] ++ [4, 5, 6]
+[1, 2, 3, 4, 5, 6]
+iex> test_list_123 = [1, 2, 3]
+iex> test_list_456 = [4, 5, 6]
+[1, 2, 3, 4, 5, 6]
+
+iex> [1, true, 2, false, 3, true] -- [true, false]
+[1, 2, 3, true]
+
+iex> listTest = [10, 5, 1]
+[1, 2, 3]
+iex> Enum.at(listTest, 0)
+10
+iex> Enum.at(listTest, 1)
+5
+iex> Enum.at(listTest, 2)
+1
+iex> Enum.at(listTest, 3)
+nil
 ```
 
 ### Tuples
 
 * 特徴
-  * TBD
+  * Elixirの基本型の1つ
+  * タプル型の値の書き方
+    * 波括弧 `{` `}` で囲った範囲にカンマ区切りで要素を記載する
+  * タプル内の要素には、どのような型の値でも含めることが可能
+    * 数値型、文字列型、真偽値型, など
+  * タプル内の各要素に添字を用いてアクセスすることが可能
+    * 添字は0から始まる
+  * メモリアドレス上で連続した場所に格納される
+    * 添字を用いての要素アクセス、サイズの取得処理が高速
 
 * サンプルコード
 
@@ -159,6 +198,10 @@ iex(4)> elem(tuple,1)
 :v2
 iex(5)> elem(tuple,2)
 :v3
+iex(6)> tuple = {:a, :b, :c, :d}
+
+iex(7)> put_elem(tuple, 2, :e)
+{:a, :b, :e, :d}
 ```
 
 ### Anonymous Function(無名関数)
@@ -176,7 +219,8 @@ iex(5)> elem(tuple,2)
   * Elixirでは関数も１つの型として規定されている
     * 文字列や数値など他の型を扱う際と同じレベルで、 `関数` 値を表現する方法を学ぶ
 
-* サンプルコード (入力xを与えたらx に100を足した値を出力する関数を考える)
+* サンプルコード
+  * 入力xを与えたらx に100を足した値を出力する関数を考える
 
 ```
 iex(1)> x = 42
@@ -184,6 +228,3 @@ iex(2)> f = (fn (value) -> value + 100 end) # 変数fに `関数` 値を格納�
 iex(2)> x = f.(x) # 関数を実行する(`関数` 値を格納した変数f を実行する)
 iex(3)> x # 何が表示されるか
 ```
-
-## 練習問題(関数に値をいろいろ入れてくみあわせてみる)
-* TBD
