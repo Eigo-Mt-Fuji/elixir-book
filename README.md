@@ -19,4 +19,4 @@
 ## レッスン
 * [Lesson 1 Elixir とは](./lesson1.pdf)
 * [Lesson 2 モジュールと関数](./lesson2.pdf)
-
+* [Lesson 3 Elixirの基本型](./lesson3.pdf)
