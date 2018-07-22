@@ -1,0 +1,27 @@
+pwd
+ls
+iex
+hoge = 1+1
+%%ALPHA%%
+IO.puts(hoge)
+IO.puts("hoge")
+"""
+%%NOBR%%
+[
+%%KANA%%
+toridashitakekkaha
+%%ALPHA%%
+Elixir
+%%KANA%%
+no
+%%ALPHA%%
+Map
+%%KANA%%
+kata
+%%ALPHA%%
+%%WITHBR%%
+]
+"""
+
+%%ALPHA%%
+IO.puts("result:"<>Integer.to_string(hoge))

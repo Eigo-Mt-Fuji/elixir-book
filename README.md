@@ -1,6 +1,13 @@
 # elixir-book
 
-## お作法
+
+## レッスン
+* [Lesson 1 Elixir とは](./lesson1.pdf)
+* [Lesson 2 モジュールと関数](./lesson2.pdf)
+* [Lesson 3 Elixirの基本型](./lesson3.pdf)
+* [Lesson 4 Enumモジュールとコレクション操作](./lesson4.md)
+
+## ガイドライン
 
 * 1回のレッスンは１時間、１５分ごとに４分割可能な構成を維持する
   * レッスンのレジュメに所要時間を明記する
@@ -16,9 +23,41 @@
 * 各レッスンで学習する項目ごとに、シナリオを用意する。
   * Screencast
 
-## レッスン
-* [Lesson 1 Elixir とは](./lesson1.pdf)
-* [Lesson 2 モジュールと関数](./lesson2.pdf)
-* [Lesson 3 Elixirの基本型](./lesson3.pdf)
-* [Lesson 4 Enumモジュールとコレクション操作](./lesson4.md)
+## 収録手順
+
+### 収録手順
+
+* 収録用ディレクトリへ移動
+
+```
+cd resources
+```
+
+* コンパイル(収録スクリプトに変更がある場合のみ)
+
+```
+$ npm run build
+```
+
+* シナリオをテキストファイル形式で用意
+
+```
+$ ls -la ./ # resourcesディレクトリにいることを確認
+vi testdoc.txt
+```
+
+* 収録開始(停止は Command + Control + Escで手動停止)
+
+```
+$ ls -la ./ # resourcesディレクトリにいることを確認
+$ npm run start testdoc
+```
+
+* 変換
+
+```
+$ ls -la ./ # resourcesディレクトリにいることを確認
+$ npm run convert test.mov test.gif
+```
+
 

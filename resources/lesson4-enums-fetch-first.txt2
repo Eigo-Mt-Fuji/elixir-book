@@ -1,0 +1,11 @@
+cd $ELIXIR_WORK_DIR
+iex -S mix
+# 本のタイトルと分類を持つリストを定義します
+book_samples_1 = [ 
+    %{:name => "Elixir handbook", :category => "programming"}, 
+    %{:name => "Erlang handbook", :category => "programming"}, 
+    %{:name => "Detective Poirot", :category => "novel"}
+]
+{:ok, first} = Enum.fetch(book_samples_1, 0) # Enum.fetch関数を使って先頭の要素を取り出します
+is_map(first) # 取り出した結果(first)はElixirのMap型です
+IO.puts(first.name)

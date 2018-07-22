@@ -1,0 +1,21 @@
+{
+  "name": "elixir-book",
+  "version": "1.0.0",
+  "description": "elixir book repo",
+  "scripts": {
+    "build": "osacompile -o recording.scpt recording.applescript",
+    "convert": "sh convert-gif.sh ",
+    "start": "osascript recording.scpt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Eigo-Mt-Fuji/elixir-book.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Eigo-Mt-Fuji/elixir-book/issues"
+  },
+  "homepage": "https://github.com/Eigo-Mt-Fuji/elixir-book#readme"
+}
+
