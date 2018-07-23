@@ -49,8 +49,9 @@ $ export ELIXIR_WORK_DIR=`pwd`
   * any: コレクション内の要素のいずれかが〜である場合trueを返す
 
 
-* [fetch関数 先頭の要素を取得する]()
-<img src="./resources/default.png" onclick="this.src='./resources/lesson4-enums-fetch-first.gif'" alt="">
+* fetch関数 先頭の要素を取得する
+
+  <img title="サンプル" src="./resources/default.png" onclick="this.src='./resources/lesson4-enums-fetch-first.gif'" alt="">
 * [fetch関数 最後尾の要素を取得する](./resources/lesson4-enums-fetch-last.gif)
 * [fetch関数 中央の要素を取得する](./resources/lesson4-enums-fetch-mid.gif)
 
