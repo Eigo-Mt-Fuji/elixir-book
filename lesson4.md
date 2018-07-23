@@ -52,7 +52,8 @@ $ export ELIXIR_WORK_DIR=`pwd`
 * fetch関数 先頭の要素を取得する
 
   <img title="サンプル" src="./resources/default.png" onclick="this.src='./resources/lesson4-enums-fetch-first.gif' return false;" alt="">
-* [fetch関数 最後尾の要素を取得する](./resources/lesson4-enums-fetch-last.gif)
+* ![fetch関数 最後尾の要素を取得する](./resources/lesson4-enums-fetch-last.gif "fetch関数 最後尾の要素を取得する")
+* ![fetch関数 最後尾の要素を取得する(mov)](./resources/lesson4-enums-fetch-last.mov "fetch関数 最後尾の要素を取得する(mov)")
 * [fetch関数 中央の要素を取得する](./resources/lesson4-enums-fetch-mid.gif)
 
 ## Enumを使って実際のデータセットを操作する
