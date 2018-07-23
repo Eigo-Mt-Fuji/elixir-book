@@ -46,7 +46,9 @@ $ ls -la ./ # resourcesディレクトリにいることを確認
 vi testdoc.txt
 ```
 
-* 収録開始(停止は Command + Control + Escで手動停止)
+* 収録開始
+
+* QuickTime Playerを起動
 
 ```
 $ ls -la ./ # resourcesディレクトリにいることを確認

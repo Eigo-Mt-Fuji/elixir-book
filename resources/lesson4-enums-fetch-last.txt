@@ -1,0 +1,11 @@
+cd $ELIXIR_WORK_DIR
+iex -S mix
+book_samples_1 = [ 
+    %{:name => "Elixir handbook", :category => "programming"}, 
+    %{:name => "Erlang handbook", :category => "programming"}, 
+    %{:name => "Detective Poirot", :category => "novel"}
+]
+
+pos = length(book_samples_1) - 1
+{:ok, last} = Enum.fetch(book_samples_1, pos)
+IO.puts(last.name)

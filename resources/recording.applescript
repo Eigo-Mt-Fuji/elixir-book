@@ -7,15 +7,15 @@ on run argv
 	set the text item delimiters to ("\n")
 	set mylines to text items in fc
 	
-	tell application "QuickTime Player"
-		activate
-		close every document saving no
-		set sr to new screen recording
-		start sr
+	-- tell application "QuickTime Player"
+	-- 	activate
+	-- 	close every document saving no
+	-- 	set sr to new screen recording
+	-- 	start sr
 
-	end tell
+	-- end tell
 	tell application "iTerm" to activate
-	tell application "System Events" to key code 102	
+	tell application "System Events" to key code 102
 	set isbr to true
 	set mode to 102
 	repeat with currentline in mylines
@@ -37,7 +37,8 @@ on run argv
 	end repeat
 	
 	tell application "System Events" to keystroke "¥" using control down
-
+	delay 1
+	tell application "System Events" to key code 53 using {command down, control down}
 	-- tell application "QuickTime Player" 
 	-- 	activate
 		
@@ -67,7 +68,7 @@ on exec_script(the_string, isbr, mode)
 		-- tell application "iTerm" to activate
 		repeat with the_character in the_string
 			
-			log(the_character)
+			-- log(the_character)
 			if (the_character contains " ") = false then
 				keystroke the_character
 				delay 0.1

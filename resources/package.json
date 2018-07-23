@@ -4,7 +4,6 @@
   "description": "elixir book repo",
   "scripts": {
     "build": "osacompile -o recording.scpt recording.applescript",
-    "convert": "sh convert-gif.sh ",
     "start": "osascript recording.scpt"
   },
   "repository": {
