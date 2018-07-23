@@ -59,18 +59,8 @@ $ npm run start testdoc
 
 ```
 $ ls -la ./ # resourcesディレクトリにいることを確認
-$ TARGET=lesson4-enums-fetch-first.mov
-$ DEST=lesson4-enums-fetch-first.gif
+$ TARGET=lesson4-enums-fetch-first
 $ rm -rf palette.png
-$ ffmpeg -i $TARGET -vf fps=10,palettegen palette.png
-$ ffmpeg -i $TARGET -i palette.png -filter_complex "fps=10,paletteuse" $DEST
+$ ffmpeg -i $TARGET.mov -vf fps=10,palettegen palette.png
+$ ffmpeg -i $TARGET.mov -i palette.png -filter_complex "fps=10,paletteuse" $TARGET.mov
 ```
-
-```
-ffmpeg -y -i lesson4-enums-fetch-first.mov -vf fps=10,palettegen palette.png
-ffmpeg -i lesson4-enums-fetch-first.mov -i palette.png -filter_complex "fps=10,paletteuse" lesson4-enums-fetch-first.gif
-
-```
-ffmpeg -i lesson4-enums-fetch-first.mov -vf fps=10,palettegen palette.png
-ffmpeg -i lesson4-enums-fetch-first.mov -i palette.png -filter_complex "fps=10,paletteuse" lesson4-enums-fetch-first.gif
-
