@@ -1,0 +1,15 @@
+cd $ELIXIR_WORK_DIR
+iex -S mix
+book_samples_1 = [ 
+    %{:name => "Elixir handbook", :category => "programming"}, 
+    %{:name => "Erlang handbook", :category => "programming"}, 
+    %{:name => "Detective Poirot", :category => "novel"}
+]
+
+pos = div(length(book_samples_1) - 1, 2) 
+result = Enum.fetch(book_samples_1, pos)
+is_tuple(result)
+elem(result, 0)
+middle = elem(result, 1)
+IO.puts(middle.name)
+
