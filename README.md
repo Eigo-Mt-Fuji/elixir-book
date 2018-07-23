@@ -97,3 +97,54 @@ $ ffmpeg -i $TARGET.mov -i palette.png -filter_complex "fps=10,paletteuse" $TARG
 
 <img src="./resources/lesson4-enums-fetch-first.gif" width="512" width="320" />
 ```
+
+
+### 参考シナリオ
+
+* 以下のようなシナリオを記述できます
+   * 例1
+
+```elixir
+cd $ELIXIR_WORK_DIR
+iex -S mix
+book_samples_1 = [
+    %{:name => "Elixir handbook", :category => "programming"},
+    %{:name => "Erlang handbook", :category => "programming"},
+    %{:name => "Detective Poirot", :category => "novel"}
+]
+{:ok, first} = Enum.fetch(book_samples_1, 0)
+is_map(first)
+IO.puts(first.name)
+```
+
+   * 例2
+
+```
+pwd
+ls
+iex
+hoge = 1+1
+%%ALPHA%%
+IO.puts(hoge)
+IO.puts("hoge")
+"""
+%%NOBR%%
+[
+%%KANA%%
+toridashitakekkaha
+%%ALPHA%%
+Elixir
+%%KANA%%
+no
+%%ALPHA%%
+Map
+%%KANA%%
+kata
+%%ALPHA%%
+%%WITHBR%%
+]
+"""
+
+%%ALPHA%%
+IO.puts("result:"<>Integer.to_string(hoge))
+```
