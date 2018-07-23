@@ -21,9 +21,9 @@
 * 公式資料(英文)を翻訳する場合、原文突き合わせを最低１回、推敲を最低1回行う。
 
 * 各レッスンで学習する項目ごとに、シナリオを用意する。
-  * Screencast
+  * `Screencast` の `収録手順` を参照
 
-## 収録手順
+## Screencast
 
 ### 収録手順
 
@@ -43,24 +43,49 @@ $ npm run build
 
 ```
 $ ls -la ./ # resourcesディレクトリにいることを確認
-vi testdoc.txt
+vi lesson4-enums-fetch-first.txt
 ```
 
-* 収録開始
+* 事前準備
+  
+  * 環境変数の設定
 
-* QuickTime Playerを起動
+```bash
+export PS1="\\$\s-\V:\W "
+export ELIXIR_WORK_DIR="/Users/e_fujikawa/Documents/git/elixir-ex-cli-sample"
+```
+
+* 収録開始  
+
+  * ターミナルソフトの準備
+    * `iTerm2` を開く
+    * ホームディレクトリに移動
+    * 最大化しておく
+
+  * QuickTime Playerを起動
+    * 新規画面収録 -> 開始ボタン( <span style="color: red">赤い丸</span> ) を押す
+
+* シナリオの実行開始
 
 ```
 $ ls -la ./ # resourcesディレクトリにいることを確認
-$ npm run start testdoc
+$ npm run start lesson4-enums-fetch-first
 ```
 
-* 変換
+* スクリプト実行終了
+  * QuickTime Playerにて、収録した画面の動画像を `シナリオ名.original.mov` として保存
 
-```
+* 動画編集(任意)
+  * 必要であれば一部トリムする作業をここで行う
+  * 不要な場合、単に `シナリオ名.original.mov` を `シナリオ名.mov` に変えて保存する
+    * このあとの動画変換作業は  `シナリオ名.mov` を用いて行う
+
+* 動画変換(mov -> gif)
+
+```bash
 $ ls -la ./ # resourcesディレクトリにいることを確認
 $ TARGET=lesson4-enums-fetch-first
 $ rm -rf palette.png
 $ ffmpeg -i $TARGET.mov -vf fps=10,palettegen palette.png
-$ ffmpeg -i $TARGET.mov -i palette.png -filter_complex "fps=10,paletteuse" $TARGET.mov
+$ ffmpeg -i $TARGET.mov -i palette.png -filter_complex "fps=10,paletteuse" $TARGET.gif
 ```
