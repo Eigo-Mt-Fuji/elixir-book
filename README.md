@@ -89,3 +89,11 @@ $ rm -rf palette.png
 $ ffmpeg -i $TARGET.mov -vf fps=10,palettegen palette.png
 $ ffmpeg -i $TARGET.mov -i palette.png -filter_complex "fps=10,paletteuse" $TARGET.gif
 ```
+
+* 作成した動画を以下の要領で教材に埋め込む
+
+```text
+* fetch関数 先頭の要素を取得する
+
+<img src="./resources/lesson4-enums-fetch-first.gif" width="512" width="320" />
+```
