@@ -9,6 +9,7 @@
 ```
 $ git clone -b master https://github.com/Eigo-Mt-Fuji/elixir-ex-cli-sample.git
 $ cd elixir-ex-cli-sample
+$ mix deps.get
 $ vi lib/LessonAnimalsCli.ex # TODO: 箇所を実装する
 $ iex -S mix
 $ Lesson.AnimalsCli.main() # 試しに実行
@@ -25,24 +26,33 @@ $ Lesson.AnimalsCli.main() # 試しに実行
 
 ### 利用する技術(今回新たに追加)
 
+
 * GoogleApi
 
 ```elixir
 $ cd elixir-ex-cli-sample
-$ git stash # 作業中のファイルを退避/clear
-$ git fetch origin
-$ git checkout -b master origin/master
-$ git pull origin master
 $ iex -S mix
-response = GoogleApi.CustomSearch.V1.Api.Cse.search_cse_list(tesla, "ネコ", [{:cx, "013595435806448571340:qrcz-ciehnm"},{:key, "AIzaSyBDBmhYu2qeGV_Gx1TaVvfKQkhzyHib3o0"}, {:search_type, "image"}, {:lr, "lang_ja"}, {:num, "2"}])
-contents = elem(response, 1)
-Enum.at(contents.items, 0)
-{:ok, first} = Enum.fetch(contents.items, 0)
-image_url = Enum.at(first.pagemap["cse_image"], 0)["src"]
+iex(1)> tesla = GoogleApi.CustomSearch.V1.Connection.new
+iex(2)> response = GoogleApi.CustomSearch.V1.Api.Cse.search_cse_list(tesla, "ネコ", [{:cx, "<search-engine-id>"},{:key, "<api-key>"}, {:search_type, "image"}, {:lr, "lang_ja"}, {:num, "2"}])
+iex(3)> contents = elem(response, 1)
+iex(4)> Enum.at(contents.items, 0)
+iex(5)> {:ok, first} = Enum.fetch(contents.items, 0)
+iex(6)> image_url = Enum.at(first.pagemap["cse_image"], 0)["src"]
 ```
 
 * 画像表示(System.cmdを利用)
 
 ```elixir
-System.cmd "open", [image_url]
+iex(7)> System.cmd "open", [image_url]
+```
+
+## 回答例
+
+```bash
+$ git clone -b lesson-20170724-2 https://github.com/Eigo-Mt-Fuji/elixir-ex-cli-sample.git elixir-ex-cli-sample-lesson-20170724-2
+$ cd elixir-ex-cli-sample-lesson-20170724-2
+$ mix deps.get
+$ less lib/LessonAnimalsCli.ex
+$ iex -S mix
+iex(1) > Lesson.AnimalsCli.main()
 ```
