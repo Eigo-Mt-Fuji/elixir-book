@@ -6,6 +6,10 @@
 
 * Phoenix環境構築(https://hexdocs.pm/phoenix/up_and_running.html)
 
+## このレッスンの所要時間
+
+1時間
+
 ## Phoenix とは?
 
 * Webフレームワーク
