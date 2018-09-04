@@ -11,8 +11,8 @@
 * [Lesson 7 Webアプリケーションを動かそう](./lesson7.md)
 * [Lesson 8 Webアプリケーションを公開しよう](./lesson8.md)
 * [Lesson 9 MVCパターンを学ぼう(未)](./lesson9.md)
-* [Lesson 10 VueJs x MaterialUIでページを飾ろう(未)](./lesson10.md)
-* [Lesson 11 Webアプリケーションを使った開発演習(未)](./lesson11.md)
+* [Lesson 10 VueJs x MaterialUIで飾ろう(仮)](./lesson10.md)
+* [Lesson 11 Webアプリケーション開発演習(仮)](./lesson11.md)
 
 ## ガイドライン
 
