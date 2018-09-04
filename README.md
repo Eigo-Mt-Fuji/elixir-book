@@ -9,9 +9,9 @@
 * [Lesson 5 GoogleApiを使った開発演習](./lesson5.md)
 * [Lesson 6 Phoenix とは](./lesson6.md)
 * [Lesson 7 Webアプリケーションを動かそう](./lesson7.md)
-* [Lesson 8 Webアプリケーションを外部に公開しよう](./lesson8.md)
+* [Lesson 8 Webアプリケーションを公開しよう](./lesson8.md)
 * [Lesson 9 MVCパターンを学ぼう(未)](./lesson9.md)
-* [Lesson 10 VueJs x MaterialDesignでページを作ろう(未)](./lesson10.md)
+* [Lesson 10 VueJs x MaterialUIでページを飾ろう(未)](./lesson10.md)
 * [Lesson 11 Webアプリケーションを使った開発演習(未)](./lesson11.md)
 
 ## ガイドライン
