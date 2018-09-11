@@ -9,7 +9,7 @@
 * Signup
    * https://signup.heroku.com/dc
   
-* Ｓｉｇｎｉｎ確認
+* Signin
    * [Herokuのダッシュボード](https://dashboard.heroku.com/apps) がブラウザで表示できることを確認してください
 
 ## STEP2: MacにHerokuのcliをインストールします
