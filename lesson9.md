@@ -7,8 +7,8 @@
 * Phoenixフレームワークで自動生成されたファイルをみながらモデル・ビュー・コントローラの実態をみる
    * STEP1 - STEP3
 
-* 実際に修正とサービスレベルでの確認を行っていきます
-   * STEP4 - STEP7
+* 機能定義に合わせて修正とサービス公開・確認を行っています
+   * STEP4 - STEP6
    
 ## ダッシュボード画面イメージ
 
@@ -120,6 +120,15 @@ end
 
 ## STEP3: デプロイして確認してみましょう
 
+* まずローカル環境で動作確認しましょう
+
+```
+$ mix ecto.migrate
+$ mix compile
+$ mix phx.server
+$ open http://0.0.0.0:3000/admin/lscontent/
+```
+
 * Herokuに公開する
 
 ```
@@ -180,15 +189,7 @@ defmodule PortionWeb.LsContentController do
 end
 ```
 
-## STEP6: 修正版をローカル環境で動作確認しましょう
-
-```
-$ mix compile
-$ mix phx.server
-$ open http://0.0.0.0:3000/admin/lscontent/
-```
-
-## STEP7: デプロイして反映されるか確認しましょう
+## STEP6: デプロイして反映されるか確認しましょう
 
 ```
 $ git add ./
