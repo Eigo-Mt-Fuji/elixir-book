@@ -5,16 +5,18 @@
 * シンプルなLMSを作る想定で `ダッシュボード機能` を作りながらWebアプリケーション開発、MVCパターンを体験します
 
 * Phoenixフレームワークで自動生成されたファイルをみながらモデル・ビュー・コントローラの実態をみる
+   * STEP1 - STEP3
 
 * 実際に修正とサービスレベルでの確認を行っていきます
-
+   * STEP4 - STEP7
+   
 ## ダッシュボード画面イメージ
 
 <img src="./resources/lesson9-dashboard-image.gif" width="860" width="480" />
 
-## 完成版URL
+## 完成版URLはこちら
 
-(https://mysterious-journey-60235.herokuapp.com/admin/lscontents)
+https://mysterious-journey-60235.herokuapp.com/admin/lscontents
 
 ## ダッシュボード機能定義
 
@@ -25,8 +27,6 @@
 * アイキャッチ画像を選択すると詳細画面に遷移できる
 * 学習コンテンツの削除処理を呼び出せる
 ```
-
-## 画面イメージ
 
 ## STEP1: まずは雛形を作成し、画面を表示してみましょう
 
@@ -147,6 +147,7 @@ select * from lscontents;
         * パラメータ名は適当な名前を決めて設定する
 
 ## STEP4-2(OPTION): ダッシュボード機能のイメージに近づけてみる 
+  * 余裕のある方はレスポンシブなデザインになるようにCSSを定義してみましょう
 
 ## STEP5: `ビューテンプレート` に合わせてコントローラを修正する
   * ダッシュボード画面イメージを参考に、ページレイアウトを修正してみましょう
@@ -196,7 +197,7 @@ $ git push heroku master # デプロイが成功することを確認
 $ open https://<控えておいたアプリケーション名>.herokuapp.com/admin/lscontents/ # ブラウザで開いて表示を確認しましょう
 ```
 
-## STEP8: まとめ
+## まとめ
 
 * Phoenixの自動生成コマンドで作成された機能の雛形を確認できた
 
