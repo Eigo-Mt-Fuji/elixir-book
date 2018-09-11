@@ -1,46 +1,120 @@
-`Heroku にデプロイしよう`
+# Webアプリケーションを公開しよう
 
-Herokuというサービスを使うと、無償でWebアプリケーションを外部に公開できます
+## アジェンダ
+* Phoenixで作成したWebアプリケーションを [Heroku](https://jp.heroku.com/platform) を使って外部公開しましょう
+* 無償でWebアプリケーションを外部に公開できます
 
-まずはアカウントの作成をお願いします
-https://signup.heroku.com/dc （編集済み）
-signup.heroku.com
-Heroku | Sign up
-Sign up for a free Heroku developer account and get started building your apps on Heroku.
-今日やりたいことのながれは以下のとおりです
+## STEP1: まずはアカウントの作成をお願いします
 
-```1. Signup & Loginできるか確認する
-   - dasshboard https://dashboard.heroku.com/apps が表示できればOK 
-      
-2. MacにHerokuのCliをインストール
-   - https://devcenter.heroku.com/articles/heroku-cli#download-and-install
-   - https://devcenter.heroku.com/articles/heroku-cli#getting-started
+* Signup
+   * https://signup.heroku.com/dc
+  
+* Ｓｉｇｎｉｎ確認
+   * [Herokuのダッシュボード](https://dashboard.heroku.com/apps) がブラウザで表示できることを確認してください
 
-3. Deployしてみる
-   - ためしに下記のソースを公開してみましょう
-      https://github.com/Eigo-Mt-Fuji/phoenix-training```
+## STEP2: MacにHerokuのcliをインストールします
 
-```heroku login
-heroku create --buildpack "https://github.com/HashNuke/heroku-buildpack-elixir.git" # アプリケーション名が表示されるので控えておく
-heroku addons:create heroku-postgresql:hobby-dev -a 控えておいたアプリケーション名
-heroku buildpacks:add https://github.com/heroku/heroku-buildpack-nodejs#v83 -a 控えておいたアプリケーション名
-heroku git:remote heroku -a 控えておいたアプリケーション名
+* インストール
+   * https://devcenter.heroku.com/articles/heroku-cli#download-and-install
+
+* セットアップ手順
+   * https://devcenter.heroku.com/articles/heroku-cli#getting-started
+
+## STEP3: （デプロイする準備）Heroku上にアプリケーションを作成します
+* phoenix-trainingというソースを使って公開の手順を通してみましょう
+   * TBD
+
+* 
+
+```
+$ cd phoenix-training
+$ heroku login
+$ heroku create --buildpack "https://github.com/HashNuke/heroku-buildpack-elixir.git" # アプリケーション名が表示されるので控えておく
+$ heroku addons:create heroku-postgresql:hobby-dev -a <控えておいたアプリケーション名>
+$ heroku buildpacks:add https://github.com/heroku/heroku-buildpack-nodejs#v83 -a <控えておいたアプリケーション名>
+$ heroku git:remote heroku -a <控えておいたアプリケーション名>
+$ cat <<EOF > config/prod.exs
+
+use Mix.Config
+
+config :portion, PortionWeb.Endpoint,
+  load_from_system_env: true,
+  url: [scheme: "https", host: "<控えておいたアプリケーション名>.herokuapp.com", port: 443],
+  force_ssl: [rewrite_on: [:x_forwarded_proto]],
+  cache_static_manifest: "priv/static/cache_manifest.json",
+  secret_key_base: Map.fetch!(System.get_env(), "SECRET_KEY_BASE")
+
+config :portion, Portion.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  url: System.get_env("DATABASE_URL"),
+  pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
+  ssl: true
+
+config :logger, level: :info
+EOF
+
+$ cat <<EOF > package.json
+{
+  "repository": {},
+  "description" : "dummy package.json",
+  "license": "MIT",
+  "scripts": {},
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}
+EOF
+
+$ cat <<EOF > Procfile
+web: cd assets/ && npm install && cd ../ && MIX_ENV=prod mix phx.server
+EOF
 
 heroku config:set POOL_SIZE=18
 heroku config:set SECRET_KEY_BASE="$(mix phx.gen.secret)"
 heroku config:set GAPI_CUSTOMSEARCH_APIKEY="<APIキー>"
-heroku config:set GAPI_CUSTOMSEARCH_CX="検索エンジンID" 
-heroku config:set GCP_CREDENTIALS='GCP クレデンシャル（JSON）'
+heroku config:set GAPI_CUSTOMSEARCH_CX="<検索エンジンID>" 
+heroku config:set GCP_CREDENTIALS='<GCP クレデンシャル（JSON）>'
 
-git push heroku master```
-（編集済み）
+git push heroku master
+```
+
+## 完成イメージ
 
 e-fujikawa [10:32]
 公開するとこのように表示されます
-スクリーンショット 2018-09-04 10.31.17.png 
+ 
+## STEP6: HTMLソースを修正してHerokuに反映してみましょう
 
-`mysterious-journey-60235`
-```$-bash-3.2.57:phoenix-training heroku addons:create --help
+```
+vi lib/portion_web/templates/ls_user/index.html.eex # ためしにhtmlを修正
+git add lib/portion_web/templates/ls_user/index.html.eex
+git commit -m "htmlテスト修正"
+git push heroku master # ここでHerokuに公開される
+```
+
+
+
+## 補足： Maintenanceモード切り替え
+
+* MaintenanceMode で アプリケーションを `非公開` にする
+
+   * Herokuのダッシュボードにアクセスして `Settings` を開いてください
+      * https://dashboard.heroku.com/apps
+   * Settings
+      * MaintenanceModeが `Maintenance mode is off` になっているのが確認できます
+
+         * 横にあるスイッチを `ON` に切り替えると アプリケーションが非公開になります
+            * 学習が終わったら事故防止のためメンテナンスモードをOnにしてくださいmm
+
+## 補足： heroku cliのコマンドのhelpを使う
+
+* herokuのcliの使い方がわからない場合、helpを活用してみてください
+* 以下、addons:createのhelp を表示するサンプルです
+    * `addons:create` 以外のコマンドについても同様に確認することができます
+
+```
+$-bash-3.2.57:phoenix-training heroku addons:create --help
  ›   Warning: heroku update available from 7.0.86 to 7.9.3
 create a new add-on resource
 
@@ -54,76 +128,50 @@ OPTIONS
   --confirm=confirm    overwrite existing config vars or existing add-on attachments
   --name=name          name for the add-on resource
   --wait               watch add-on creation status and exit when complete```
- `heroku git:remote heroku -a 控えておいたアプリケーション名`
-こちらのように置き換えていただけますか （編集済み）
-https://qiita.com/k-waragai/items/a372800c262f56fe688a
+```
 
-Atomでリアルタイム共同編集 （編集済み）
+## 補足： Google APIのAPIキー、検索エンジンID、GCPクレデンシャル(JSON)の取得手順
 
-e-fujikawa [11:07]
-検索エンジンID
+* 前提
+   * Google Cloud PlatformにSignupしておく
+   
+* `APIキー` の取得手順
+    * GCP のcreadentialsのページにアクセス
+        * https://console.cloud.google.com/apis/credentials
 
-`013595435806448571340:qrcz-ciehnm`
+    * `認証情報の作成` -> `APIキー` 
 
-e-fujikawa [11:26]
-`ソースを修正してHerokuに反映する手順`
+    * 作成されたAPIキーの値を控えておく
 
-```vi lib/portion_web/templates/ls_user/index.html.eex # ためしにhtmlを修正
-git add lib/portion_web/templates/ls_user/index.html.eex
-git commit -m "htmlテスト修正"
-git push heroku master # ここでHerokuに公開される```
-（編集済み）
+* `検索エンジンID` の取得手順
 
-e-fujikawa [11:37]
-`MaintenanceMode` で アプリケーションを `非公開` にする
+   * cse.google.comの下記のページにアクセス
+       * https://cse.google.com/cse/all
 
-Herokuのダッシュボードにアクセスして `Settings` を開いてください
-https://dashboard.heroku.com/apps
-Settings
-MaintenanceModeが `Maintenance mode is off` になっているのが確認できます
-横にあるスイッチを `ON` に切り替えると アプリケーションが非公開になります
-(後述の Google APIの認証情報の置き換えが完了したら再度 Settingsを開いてMaintenanceModeをoffにする)
----
-Google APIの認証情報を自分のアカウントで取得したもので置き換えましょう
-APIキー、検索エンジンID、GCPクレデンシャルを以下の手順で取得してHerokuに設定します
+   * 新しい検索エンジンを作成
+       * `検索エンジン ID` を控えておく
 
-----
-`APIキー` の取得手順
-認証情報ページでAPIキーが作成されたことを確認
-https://console.cloud.google.com/apis/credentials
-* APIキーの値を控えておく
-* heroku config:set GAPI_CUSTOMSEARCH_APIKEY=“<APIキー>” を実行 （編集済み）
-accounts.google.com
-Google Cloud Platform
-Google Cloud Platform lets you build, deploy, and scale applications, websites, and services on the same infrastructure as Google.
----
-`検索エンジンID` の取得手順
-https://cse.google.com/cse/all
+* `GCP クレデンシャル（JSON）` の取得手順
 
-• 新しい検索エンジンを作成
-•  `検索エンジン ID` を控えておく
-* heroku config:set GAPI_CUSTOMSEARCH_CX=“検索エンジンID”  を実行 （編集済み）
+    * GCP のcreadentialsのページにアクセス
+        * https://console.cloud.google.com/apis/credentials
 
-e-fujikawa [11:46]
-`GCP クレデンシャル（JSON）` の取得手順
+    * `認証情報の作成` -> `サービスアカウントキー`
+        * サービスアカウントのプルダウン：  `新しいサービスアカウント`
+        * キーのタイプは JSON
+        * JSONファイルがダウンロードされるのでこの中身を控えて
 
-https://console.cloud.google.com/apis/credentials
+* 控えておいた値を `heroku config:set` コマンドを実行してそれぞれ再設定します
 
-`認証情報の作成` -> `サービスアカウントキー` -> 作成画面が表示される
-   * サービスアカウントのプルダウン：  `新しいサービスアカウント`
-   * キーのタイプは JSON
-   * JSONファイルがダウンロードされるのでこの中身を控えて
-   *  heroku config:set GCP_CREDENTIALS=‘GCP クレデンシャル（JSON）’ を実行 （編集済み）
-----
-上記の流れで、認証情報の作成とHerokuへの再設定をすることで
-自分のアカウントの認証情報がHerokuにデプロイしたアプリケーションに反映されますmm
+```
+heroku config:set GAPI_CUSTOMSEARCH_APIKEY=“検索エンジンID”
+heroku config:set GAPI_CUSTOMSEARCH_CX=“検索エンジンID”
+heroku config:set GCP_CREDENTIALS=‘GCP クレデンシャル（JSON）’
+```
 
-Herokuの `Activity` で反映されたか確認
-https://dashboard.heroku.com/apps/ （編集済み）
+* Herokuのダッシュボードページをブラウザで開いて `Activity` タブを選択して表示・configの設定が実行されたことを確認a
+    * https://dashboard.heroku.com/apps/
+    * Herokuのアプリケーション再起動(Restart all dyno)
 
-e-fujikawa [12:00]
-`Herokuのアプリケーション再起動`
-スクリーンショット 2018-09-04 11.59.46.png 
-
-`Restart all dyno`
+* 上記の流れで、認証情報の作成とHerokuへの再設定をすることで、自分のアカウントの認証情報がHerokuにデプロイしたアプリケーションに反映されます
 
