@@ -2,17 +2,22 @@
 
 
 ## レッスン
-* [Lesson 1 Elixir とは](./lesson1.pdf)
-* [Lesson 2 モジュールと関数](./lesson2.pdf)
-* [Lesson 3 Elixirの基本型](./lesson3.pdf)
-* [Lesson 4 Enumモジュールとコレクション操作](./lesson4.md)
-* [Lesson 5 GoogleApiを使った開発演習](./lesson5.md)
-* [Lesson 6 Phoenix とは](./lesson6.md)
-* [Lesson 7 Webアプリケーションを動かそう](./lesson7.md)
-* [Lesson 8 Webアプリケーションを公開しよう](./lesson8.md)
-* [Lesson 9 MVCパターンを学ぼう](./lesson9.md)
-* [Lesson 10 VueJs x MaterialUIで飾ろう(仮)](./lesson10.md)
-* [Lesson 11 Webアプリケーション開発演習(仮)](./lesson11.md)
+* [Lesson 1 CLI: Elixir とは  / 開発環境構築](./lesson1.pdf)
+* [Lesson 2 CLI: モジュールと関数](./lesson2.pdf)
+* [Lesson 3 CLI: Elixirの基本型](./lesson3.pdf)
+* [Lesson 4 CLI: Elixir Enumとコレクション操作](./lesson4.md)
+* [Lesson 5 CLI: 開発演習(GoogleApi)](./lesson5.md)
+* [Lesson 6 Web: Phoenix とは / 開発環境構築](./lesson6.md)
+* [Lesson 7 Web: サンプルアプリを動かす](./lesson7.md)
+* [Lesson 8 Web: アプリを外部公開する](./lesson8.md)
+* [Lesson 9 Web: MVCパターンを学ぶ](./lesson9.md)
+* [Lesson 10 Web: 開発演習（LMS開発）](./README.md)
+* [Lesson Ex Vue x Materialでレスポンシブデザイン](https://github.com/Eigo-Mt-Fuji/rails-training-image-search/issues/3)
+* [Lesson Ex ポートフォリオの機能とアーキテクチャをデザイン](https://github.com/Eigo-Mt-Fuji/rails-training-image-search/issues/2)
+* [Lesson Ex チャンネル機能を使ってリアルタイムコミュニケーションを実現しましょう](./README.md)
+* [Lesson Ex 大規模データを処理するビジネスロジックを実装する](./README.md)
+* [Lesson Ex チャットボット機能開発](./README.md)
+* [Lesson Ex 画像識別サービスを使ってみよう](./README.md)
 
 ## ガイドライン
 
