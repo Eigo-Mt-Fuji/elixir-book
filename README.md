@@ -12,11 +12,11 @@
 * [Lesson 8 Web: アプリを外部公開する](./lesson8.md)
 * [Lesson 9 Web: MVCパターンを学ぶ](./lesson9.md)
 * [Lesson 10 Web: 開発演習（LMS開発）](./README.md)
+* [Lesson Ex MVCでアーキテクチャ図を描きながら作る](https://github.com/Eigo-Mt-Fuji/rails-training-image-search/issues/2)
 * [Lesson Ex Vue x Materialでレスポンシブデザイン](https://github.com/Eigo-Mt-Fuji/rails-training-image-search/issues/3)
-* [Lesson Ex ポートフォリオの機能とアーキテクチャをデザイン](https://github.com/Eigo-Mt-Fuji/rails-training-image-search/issues/2)
+* [Lesson Ex チャットボット機能開発](https://github.com/Eigo-Mt-Fuji/phoenix-training/issues/21)
 * [Lesson Ex チャンネル機能を使ってリアルタイムコミュニケーションを実現しましょう](./README.md)
 * [Lesson Ex 大規模データを処理するビジネスロジックを実装する](./README.md)
-* [Lesson Ex チャットボット機能開発](./README.md)
 * [Lesson Ex 画像識別サービスを使ってみよう](./README.md)
 
 ## ガイドライン
