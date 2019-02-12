@@ -13,7 +13,7 @@
 * [Lesson 9 Web: MVCパターンを学ぶ](https://github.com/Eigo-Mt-Fuji/elixir-book/blob/master/lesson9.md)
 * [Lesson 10 Ex; MVCでアーキテクチャ図を描きながら作る](https://github.com/Eigo-Mt-Fuji/rails-training-image-search/issues/2)
 * [Lesson 11 Ex: VueJsを入れてMaterialなレスポンシブデザイン](https://github.com/Eigo-Mt-Fuji/rails-training-image-search/issues/3)
-* [Lesson 12 Ex: LINEチャットボット用のAPI開発しよう](https://qiita.com/e_fujikawa/items/27d6a3aac6b513a90713)
+* [Lesson 12 Ex: LINEチャットボット用のAPI開発しよう](https://github.com/Eigo-Mt-Fuji/elic-api)
 * [Lesson Ex チャンネル機能を使ってリアルタイムコミュニケーションを実現しましょう](./README.md)
 * [Lesson Ex 大規模データを処理するビジネスロジックを実装する](./README.md)
 * [Lesson Ex 画像識別サービスを使ってみよう](./README.md)
